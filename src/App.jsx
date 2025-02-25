@@ -1,5 +1,5 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.css";
+import { useState, useEffect } from "react";
 
 function App() {
   const [activePlayer, setActivePlayer] = useState(0); // Jugadores 0 y 1
@@ -53,7 +53,11 @@ function App() {
   return (
     <main>
       {/* Jugador 1 */}
-      <div className={`player ${activePlayer === 0 ? 'player--active' : ''} ${winner === 0 ? 'player--winner' : ''}`}>
+      <div
+        className={`player ${activePlayer === 0 ? "player--active" : ""} ${
+          winner === 0 ? "player--winner" : ""
+        }`}
+      >
         <div className="name">Player 1</div>
         <div className="score">{score[0]}</div>
         {activePlayer === 0 && winner === null && (
@@ -65,7 +69,11 @@ function App() {
       </div>
 
       {/* Jugador 2 */}
-      <div className={`player ${activePlayer === 1 ? 'player--active' : ''} ${winner === 1 ? 'player--winner' : ''}`}>
+      <div
+        className={`player ${activePlayer === 1 ? "player--active" : ""} ${
+          winner === 1 ? "player--winner" : ""
+        }`}
+      >
         <div className="name">Player 2</div>
         <div className="score">{score[1]}</div>
         {activePlayer === 1 && winner === null && (
@@ -85,21 +93,26 @@ function App() {
         />
       )}
 
-      {/* Mostrar el mensaje de victoria si alguien gana */}
-      {winner !== null && (
-        <div className="winner-message">
-          Player {winner + 1} wins! 🎉
-        </div>
-      )}
-
       {/* Botones para las acciones del juego */}
-      <button className="btn btn--new" onClick={handleNewGame} disabled={winner !== null}>
+      <button
+        className="btn btn--new"
+        onClick={handleNewGame}
+        disabled={winner !== null ? false : true}
+      >
         🔄 New game
       </button>
-      <button className="btn btn--roll" onClick={handleRollDice} disabled={winner !== null}>
+      <button
+        className="btn btn--roll"
+        onClick={handleRollDice}
+        disabled={winner !== null}
+      >
         🎲 Roll dice
       </button>
-      <button className="btn btn--hold" onClick={handleHold} disabled={winner !== null}>
+      <button
+        className="btn btn--hold"
+        onClick={handleHold}
+        disabled={winner !== null}
+      >
         📥 Hold
       </button>
     </main>
